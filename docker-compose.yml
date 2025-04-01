@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 services:
   frontend:
     image: aqaziuog/lms-frontend:2.0.0
