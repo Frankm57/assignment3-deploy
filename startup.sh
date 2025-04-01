@@ -4,7 +4,7 @@ apt install -y docker.io docker-compose git
 
 cd /home
 
-git clone https://github.com/Frankm57/frontend-react.git
+git clone https://github.com/Frankm57/assignment3-deploy
 
 cd assignment3
 
