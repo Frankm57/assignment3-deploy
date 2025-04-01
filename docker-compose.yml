@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  frontend:
+    image: aqaziuog/lms-frontend:2.0.0
+    ports:
+      - "80:80"
+    depends_on:
+      - backend-flask
+    networks:
+      - app-network
+
+  backend-flask:
+    image: aqaziuog/lms-backend:2.0.0
+    ports:
+      - "4000:4000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+      - NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY}
+      - NEW_RELIC_APP_NAME=${NEW_RELIC_APP_NAME:-LMS System - Backend}
+      - NEW_RELIC_ENVIRONMENT=${NEW_RELIC_ENVIRONMENT:-production}
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
